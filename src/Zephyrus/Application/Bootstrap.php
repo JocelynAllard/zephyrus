@@ -34,6 +34,9 @@ class Bootstrap
         ini_set('display_startup_errors', $dev);
         ini_set('display_errors', $dev);
         ini_set('error_log', ROOT_DIR . '/logs/errors.log');
+        if (!$dev && function_exists('xdebug_disable')) {
+            xdebug_disable();
+        }
     }
 
     private static function initializeLocale()
